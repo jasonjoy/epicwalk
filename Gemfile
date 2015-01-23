@@ -10,6 +10,10 @@ gem 'pg'
 gem 'bootstrap-sass', '~> 3.3.0'
 gem 'autoprefixer-rails'
 
+# Download fitbit user data
+gem 'fitgem'
+gem 'omniauth-fitbit'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
