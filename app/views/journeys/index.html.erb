@@ -1,1 +1,10 @@
-<h1>That's a good start!</h1>
+<%= @journeys.each do |journey| %>
+  <div>
+  	<h1><%= journey.name %></h1><br />
+  	<i><%= journey.start_addr %></i><br />
+  	<i><%= journey.dest_addr %></i><br />
+  	<p><%= journey.start_date %></p><br />
+  </div>
+
+  <hr />
+<% end %>  		
