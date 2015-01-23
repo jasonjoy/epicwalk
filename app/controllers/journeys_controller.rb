@@ -7,4 +7,15 @@ class JourneysController < ApplicationController
 		@journey = Journey.new
 	end
 
+	def create
+		Journey.create(journey_params)
+		redirect_to root_path
+	end
+
+	private
+
+	def journey_params
+		params.require(:journey).permit(:name, :start_addr, :dest_addr, :start_date)
+	end
+
 end
