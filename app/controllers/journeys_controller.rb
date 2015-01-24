@@ -16,6 +16,22 @@ class JourneysController < ApplicationController
 		@journey = Journey.find(params[:id])
 	end
 
+	def edit
+		@journey = Journey.find(params[:id])
+	end
+
+	def update
+		@journey = Journey.find(params[:id])
+		@journey.update_attributes(journey_params)
+		redirect_to root_path
+	end
+
+	def destroy
+		@journey = Journey.find(params[:id])
+		@journey.destroy
+		redirect_to root_path
+	end
+
 	private
 
 	def journey_params

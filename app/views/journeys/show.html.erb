@@ -5,4 +5,8 @@
 	Miles walked: <br />
 	Miles to go: <br />
 	Projected finish date: <br />
+	<div class="pull-right">
+		<%= link_to 'Edit', edit_journey_path(@journey), :class => 'btn btn-primary' %>
+		<%= link_to 'Destroy', edit_journey_path(@journey), :method => :delete, :data => {:confirm => 'Are you sure you want to delete this journey?'}, :class => 'btn btn-danger' %>
+	</div>
 </div>
