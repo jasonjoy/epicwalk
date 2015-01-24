@@ -12,6 +12,10 @@ class JourneysController < ApplicationController
 		redirect_to root_path
 	end
 
+	def show
+		@journey = Journey.find(params[:id])
+	end
+
 	private
 
 	def journey_params

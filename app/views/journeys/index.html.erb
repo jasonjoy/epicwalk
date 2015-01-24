@@ -1,7 +1,7 @@
 
 <% @journeys.each do |journey| %>
   <div class="booyah-box col-xs-10 col-xs-offset-1">
-  	<h1><%= journey.name %></h1><br />
+  	<h1><%= link_to journey.name, journey_path(journey) %></h1><br />
   	<i>Starting point: <%= journey.start_addr %></i><br />
   	<i>Destination: <%= journey.dest_addr %></i><br />
   	<p>Start date: <%= journey.start_date %></p><br />
