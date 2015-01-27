@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-gem "geocoder"
+gem 'geocoder'
+
+gem 'devise', '>= 3.2.4'
 
 # Simple form
 gem 'simple_form'
