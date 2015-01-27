@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "figaro", ">= 1.0.0"
+
 gem 'geocoder'
 
 gem 'devise', '>= 3.2.4'
