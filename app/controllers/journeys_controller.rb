@@ -1,4 +1,6 @@
 class JourneysController < ApplicationController
+	before_action :authenticate_user!, :only => [:new, :create]
+
 	def index
 		@journeys = Journey.all
 	end
@@ -8,7 +10,7 @@ class JourneysController < ApplicationController
 	end
 
 	def create
-		Journey.create(journey_params)
+		current_user.journeys.create(journey_params)
 		redirect_to root_path
 	end
 

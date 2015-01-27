@@ -5,6 +5,9 @@
   	<i>Starting point: <%= journey.start_addr %></i><br />
   	<i>Destination: <%= journey.dest_addr %></i><br />
   	<p>Start date: <%= journey.start_date %></p><br />
+    <% if journey.user.present? %>
+      <small><%= journey.user.email %></small>
+    <% end %>
   </div>
 <% end %>
 
