@@ -12,6 +12,7 @@
 	Miles to go: <br />
 	Projected finish date: <br /><br />
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
 
   <script>
@@ -26,32 +27,36 @@
         zoom: 6,
         center: chicago
       };
-      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+      map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
       directionsDisplay.setMap(map);
     }
 
-    var request = {
-      origin: "33.661565,73.041330",
-      destination: "33.662502,73.044061",
-      /*
-      waypoints: [
-        {
-          location: "Columbia, CT",
-          stopover: true
-        }]
-      optimizeWaypoints: true,
-      */
-      travelMode: google.maps.TravelMode.WALKING,
-      unitSystem: google.maps.UnitSystem.IMPERIAL
-    };
-    
-    directionsService.route(request, function(response, status) {
-      if (status == google.maps.DirectionsStatus.OK) {
-        directionsDisplay.setDirections(response);
-      }
-    });
+    function calcRoute() {
+      var request = {
+        origin: "42.3550493,-71.0656252",
+        destination: "Central Park, New York City, NY",
+        waypoints: [
+          {
+            location: "Columbia, CT",
+            stopover: true
+          }],
+        optimizeWaypoints: true,
+        travelMode: google.maps.TravelMode.WALKING,
+        unitSystem: google.maps.UnitSystem.IMPERIAL
+      };
+      
+      directionsService.route(request, function(response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+          directionsDisplay.setDirections(response);
+        }
+      });
+    }
 
-    google.maps.event.addDomListener(window, 'load', initialize);
+    //google.maps.event.addDomListener(window, 'load', initialize);
+    $(function() {
+      initialize();
+      calcRoute();
+    });
 
   </script>
 
