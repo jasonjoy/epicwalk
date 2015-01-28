@@ -1,5 +1,5 @@
 body {
-  background: url('/assets/bg.png');
+  background: url('/assets/bootprints.jpg');
   font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
 }
 
@@ -24,4 +24,8 @@ h1, h2, h3, h4, h5, h6 {
   background:url('/assets/cartographer.png');
   border-radius: 0;
   box-shadow: 0px 1px 3px #2a2a2a;
+}
+
+#map-canvas {
+  height: 400px;
 }
