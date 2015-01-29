@@ -2,7 +2,7 @@ class JourneysController < ApplicationController
 	before_action :authenticate_user!, :only => [:new, :create]
 
 	def index
-		@journeys = Journey.all
+		@journeys = Journey.all.page(params[:page]).per(7)
 	end
 
 	def new
