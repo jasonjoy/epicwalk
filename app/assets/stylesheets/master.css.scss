@@ -1,5 +1,23 @@
+.hero {
+  background: url('/assets/72668913.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  height: 400px;
+}
+
+.frosty {
+  background:rgba(0,0,0,0.5);
+  color:white;
+}
+
+.frosty h1 {
+  font-weight: 100;
+  text-shadow: rgba(0,0,0,0.95) 1px 1px;
+}
+
 body {
-  background: url('/assets/bootprint.jpg');
+  background: url('/assets/bootprint.png');
   font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
 }
 
@@ -15,7 +33,7 @@ body {
   padding: 20px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .navbar {
   margin:0;
   padding:0;
 }
