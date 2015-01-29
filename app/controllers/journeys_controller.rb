@@ -25,7 +25,7 @@ class JourneysController < ApplicationController
 	def update
 		@journey = Journey.find(params[:id])
 		@journey.update_attributes(journey_params)
-		redirect_to root_path
+		redirect_to journey_path
 	end
 
 	def destroy

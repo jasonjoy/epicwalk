@@ -1,11 +1,11 @@
 <div class="booyah-box col-xs-10 col-xs-offset-1">
 	
   <div class="col-xs-12 col-md-5">
-    <h1><%= @journey.name %></h1>
+    <h1><%= @journey.name %></h1><br />
   	From: <%= @journey.start_addr %><br />
-    To: <%= @journey.dest_addr %><br />
+    To: <%= @journey.dest_addr %><br /><br />
   	Miles walked: <br />
-  	Miles to go: <br />
+  	Miles to go: <br /><br />
   	Started: <%= @journey.start_date %><br />
     Projected finish date: <br /><br />
   </div>
@@ -64,10 +64,10 @@
   </script>
 
   <div class="col-xs-12 col-md-7" id="map-canvas"></div>
-  <br /><br />
 
 	<div class="pull-right">
-		<%= link_to 'Edit', edit_journey_path(@journey), :class => 'btn btn-primary' %>
+		<br />
+    <%= link_to 'Edit', edit_journey_path(@journey), :class => 'btn btn-primary' %>
 		<%= link_to 'Destroy', journey_path(@journey), :method => :delete, :data => {:confirm => 'Are you sure you want to delete this journey?'}, :class => 'btn btn-danger' %>
 	</div>
 </div>
