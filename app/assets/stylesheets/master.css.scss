@@ -3,7 +3,8 @@
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  height: 400px;
+  height: 600px;
+  box-shadow: 0px 3px 8px #2a2a2a;
 }
 
 .frosty {
@@ -17,11 +18,23 @@
 }
 
 body {
-  background: url('/assets/bootprint.png');
+  background: url('/assets/bootprints.png');
   font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
 }
 
 .booyah-box {
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: url('/assets/subtle_white_feathers.png');
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding: 20px;
+}
+
+.booyah-plain {
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
   box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -33,13 +46,24 @@ body {
   padding: 20px;
 }
 
+.booyah-no-padding {
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: url('/assets/subtle_white_feathers.png');
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
 h1, h2, h3, h4, h5, h6, .navbar {
   margin:0;
   padding:0;
 }
 
 .navbar.navbar-inverse {
-  background:url('/assets/cartographer.png');
+  background:url('/assets/bootprints.png');
   border-radius: 0;
   box-shadow: 0px 1px 3px #2a2a2a;
 }

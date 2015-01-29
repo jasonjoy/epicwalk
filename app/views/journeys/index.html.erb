@@ -9,12 +9,13 @@
     </div>
 </div>
 
-<div class="booyah-box col-xs-10 col-xs-offset-1">
-  <%= paginate @journeys %>
+<br />
+<div class="booyah-no-padding col-xs-10 col-xs-offset-1">
+    <h3><%= paginate @journeys %></h3>
 </div>
 
 <% @journeys.each do |journey| %>
-  <div class="booyah-box col-xs-10 col-xs-offset-1">
+  <div class="booyah-box col-xs-10 col-xs-offset-1"> 
   	<h1><%= link_to journey.name, journey_path(journey) %></h1><br />
   	<i>Starting point: <%= journey.start_addr %></i><br />
   	<i>Destination: <%= journey.dest_addr %></i><br />
