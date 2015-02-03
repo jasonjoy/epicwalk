@@ -6,6 +6,8 @@ Epicwalk::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'journeys#index'
+  get "authorize", :to => "fitbit_auth#authorize"
+  get "confirm", :to => "fitbit_auth#confirm"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
