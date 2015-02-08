@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203231304) do
+ActiveRecord::Schema.define(version: 20150208184636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "daily_legs", force: true do |t|
+    t.datetime "date"
+    t.float    "distance"
+    t.string   "start_addr"
+    t.float    "start_lat"
+    t.float    "start_long"
+    t.string   "end_addr"
+    t.float    "end_lat"
+    t.float    "end_long"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fitbit_data", force: true do |t|
+    t.datetime "actvity_date"
+    t.float    "distance"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "journeys", force: true do |t|
     t.string   "name"
