@@ -1,6 +1,7 @@
 class FitbitAuthController < ApplicationController
 	def authorize
-	  config = {:consumer_key => ENV["FITBIT_CONSUMER_KEY"], :consumer_secret => ENV["FITBIT_CONSUMER_SECRET"]}
+	  config = {'consumer_key' => ENV["FITBIT_CONSUMER_KEY"], 'consumer_secret' => ENV["FITBIT_CONSUMER_SECRET"]}
+	  #raise config.inspect
 	  client = Fitgem::Client.new(config)
 
 	  request_token = client.request_token
