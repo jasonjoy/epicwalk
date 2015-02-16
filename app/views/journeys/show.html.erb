@@ -51,8 +51,13 @@
       
       directionsService.route(request, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
+          console.log("This is a valid walking route");
           directionsDisplay.setDirections(response);
         }
+        else {
+          console.log("You can't walk this route!!");
+        }
+
       });
     }
 

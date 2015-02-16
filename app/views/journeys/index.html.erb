@@ -17,6 +17,9 @@
     <%= u.oauth_token %>
     <%= u.oauth_secret %>
     <%= u.uid %>
+    <% if current_user.linked? %>
+      last10days: <%=current_user.calculate_distance(Time.now-10.days, Time.now)[:sum] %>
+    <% end %>
   <% else %>
     <%= 'No user is signed in :(' %>
   <% end %>    
