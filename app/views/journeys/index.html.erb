@@ -11,8 +11,15 @@
 
 <br />
 <div class="booyah-no-padding col-xs-10 col-xs-offset-1">
-    <%= User.last.email %>
-    <%= User.methods %>
+  <% if user_signed_in? %>
+    <% u = current_user %>
+    <%= u.email %>
+    <%= u.oauth_token %>
+    <%= u.oauth_secret %>
+    <%= u.uid %>
+  <% else %>
+    <%= 'No user is signed in :(' %>
+  <% end %>    
 </div>
 
 <div class="booyah-no-padding col-xs-10 col-xs-offset-1">
