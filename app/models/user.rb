@@ -27,13 +27,6 @@ class User < ActiveRecord::Base
 
 
   def calculate_distance(start_date, end_date)
-
-	# Write the whole oauth token set back to the config file
-	# File.open(".fitgem.yml", "w") {|f| f.write(config.to_yaml) }
-  
-  	# ============================================================
-	# Add Fitgem API calls on the client object below this line
-  
 	p = fitbit_data.activity_on_date_range 'distance',start_date.strftime('%Y-%m-%d'),end_date.strftime('%Y-%m-%d')
 	dist = p["activities-distance"]
 

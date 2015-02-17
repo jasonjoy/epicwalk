@@ -2,8 +2,8 @@
 	<h1>Start a new Journey</h1>
 	<%= simple_form_for @journey do |f| %>
 		<%= f.input :name %>
-		<%= f.input :start_addr %>
-		<%= f.input :dest_addr %>
+		<%= f.input :start_addr, label: 'Starting Address' %>
+		<%= f.input :dest_addr, label: 'Destination Address' %>
 		<%= f.input :start_date %>
 		<br />
 		<%= f.submit 'Create', :class => 'btn btn-primary' %>

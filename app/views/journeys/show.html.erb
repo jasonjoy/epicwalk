@@ -12,7 +12,7 @@
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyC_sZ51X2FfnGta_i-GbcmNqHDynfzXkFw"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=Release&key=AIzaSyC_sZ51X2FfnGta_i-GbcmNqHDynfzXkFw"></script>
 
   <script>
     var directionsDisplay;
@@ -52,12 +52,12 @@
       directionsService.route(request, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
           console.log("This is a valid walking route");
+          console.log(google.maps.DirectionsStatus);
           directionsDisplay.setDirections(response);
         }
         else {
           console.log("You can't walk this route!!");
         }
-
       });
     }
 
