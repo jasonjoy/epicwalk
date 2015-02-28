@@ -25,7 +25,14 @@ class JourneysController < ApplicationController
 	def update
 		@journey = Journey.find(params[:id])
 		@journey.update_attributes(journey_params)
-		redirect_to journey_path
+		respond_to do |format|
+			format.html do
+				redirect_to journey_path
+			end
+			format.json do
+				render :json => @journey
+			end
+		end
 	end
 
 	def destroy
@@ -37,7 +44,7 @@ class JourneysController < ApplicationController
 	private
 
 	def journey_params
-		params.require(:journey).permit(:name, :start_addr, :dest_addr, :start_date)
+		params.require(:journey).permit(:name, :start_addr, :dest_addr, :start_date, :waypoints => [])
 	end
 
 end

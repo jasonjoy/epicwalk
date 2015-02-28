@@ -12,7 +12,8 @@
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?v=Release&key=AIzaSyC_sZ51X2FfnGta_i-GbcmNqHDynfzXkFw"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=Release&key=AIzaSyDGKW8_Frg7wPQgdgjDU2fSdWmmWqBDLiI"
+    type="text/javascript"></script>
 
   <script>
     var directionsDisplay;
@@ -53,7 +54,17 @@
         if (status == google.maps.DirectionsStatus.OK) {
           console.log("This is a valid walking route");
           console.log(google.maps.DirectionsStatus);
+          console.log(response);
           directionsDisplay.setDirections(response);
+          $.ajax({
+              url: '/journeys/3.json',
+              type: 'PUT',
+              data: {journey: {waypoints: [1,5,7]}},
+              success: function(result) {
+                  // Do something with the result
+              }
+          });
+
         }
         else {
           console.log("You can't walk this route!!");
@@ -79,3 +90,9 @@
 	</div>
 </div>
 
+# distance (in miles) between Eiffel Tower and Empire State Building
+Geocoder::Calculations.distance_between([-74.0057,40.713080000000005], [-74.35518,40.773950000000006])
+Geocoder::Calculations.distance_between([-74.0057,40.713080000000005], [-74.35518,40.773950000000006])
+ => 3619.77359999382
+-74.0057, 40.713080000000005
+-74.35518, 40.773950000000006
