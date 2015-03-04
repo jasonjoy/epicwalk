@@ -28,10 +28,11 @@ class User < ActiveRecord::Base
 
   def calculate_distance(start_date, end_date)
 	p = fitbit_data.activity_on_date_range 'distance',start_date.strftime('%Y-%m-%d'),end_date.strftime('%Y-%m-%d')
-	dist = p["activities-distance"]
+  dist = p["activities-distance"]
 
 	collection = dist.collect do |day|
-	  day["value"].to_f
+	  # Multiply miles to get distance in meters
+    (day["value"].to_f * 1609.34).to_i
 	end
 	value = {
 		:collection => collection, :sum => collection.sum

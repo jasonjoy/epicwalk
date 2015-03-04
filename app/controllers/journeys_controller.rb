@@ -44,7 +44,7 @@ class JourneysController < ApplicationController
 	private
 
 	def journey_params
-		params.require(:journey).permit(:name, :start_addr, :dest_addr, :start_date, :waypoints => [])
+		params.require(:journey).permit(:name, :start_addr, :dest_addr, :start_date, :total_distance_in_meters)
 	end
 
 end
