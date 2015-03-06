@@ -15,7 +15,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?v=Release&key=AIzaSyDGKW8_Frg7wPQgdgjDU2fSdWmmWqBDLiI"
     type="text/javascript"></script>
-
+ 
   <script>
     var directionsDisplay;
     var directionsService = new google.maps.DirectionsService();
@@ -72,13 +72,17 @@
       directionsService.route(request, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
           console.log("This is a valid walking route");
-          console.log(google.maps.DirectionsStatus);
+          //console.log(google.maps.DirectionsStatus);
+          console.log("\nHere is the whole routes object:");
           console.log(response);
           
           // Grab the total distance from directionsService output, then load it into the journeys database 
           var distanceInMeters = response.routes[0].legs[0].distance.value;
+          console.log("\nHere is the calculate route distance in meters");
           console.log(distanceInMeters);
+
           var totalFitbitMetersWalked = <%= @journey.dist_so_far %>;
+          console.log("\nHere is how far you've walked in meters");          
           console.log(totalFitbitMetersWalked);
 
           // Add the distance of each step in the directions. Stop on the first step where total distance would exceed totalFitbitMetersWalked
@@ -113,7 +117,7 @@
               var prevLocationLat = prevLocation.k;
               var prevLocationLng = prevLocation.D;
               var distanceBtwnPoints = getDistanceFromLatLng(thisLocationLat, thisLocationLng, prevLocationLat, prevLocationLng);
-              myCurrentLatLng = [thisLocationLat, thisLocationLng];
+              myCurrentLatLng = [prevLocationLat, prevLocationLng];
               if ((totalDistance + distanceBtwnPoints) < totalFitbitMetersWalked) {
                 totalDistance = totalDistance + distanceBtwnPoints;
                 prevLocation = value;
@@ -123,11 +127,22 @@
               }
             }
           });
-          console.log("prevLocation");
+          console.log("\nprevLocation");
           console.log(prevLocation);
-          console.log("myCurrentLatLng");
+
+          console.log("\nmyCurrentLatLng");
           console.log(myCurrentLatLng);
+          
+          // Should put a marker at the current location, but it's not working now
+          var marker = new google.maps.Marker({
+            postion: (41.20064, -73.11271), //Static coordinates are just for testing
+            //postion: (myCurrentLatLng),
+            map: map
+          });
+          marker.setMap(map);
+
           directionsDisplay.setDirections(response);
+          // Save the calculated distanceInMeters to the @journey record
           $.ajax({
               url: '/journeys/<%= @journey.id%>.json',
               type: 'PUT',
@@ -145,26 +160,13 @@
       });
     }
 
-    function addMarkerAtMyCurrentLatLng() {
-      var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-      var marker = new google.maps.Marker({
-        position: myCurrentLatLng,
-        title:"Hello World!"
-    });
-
-    // To add the marker to the map, call setMap();
-    marker.setMap(map);
-    }
-
     //google.maps.event.addDomListener(window, 'load', initialize);
     $(function() {
       initialize();
       calcRoute();
-      // addMarkerAtMyCurrentLatLng()
     });
 
   </script>
-
 
   <div class="col-xs-12 col-md-7" id="map-canvas"></div>
 
